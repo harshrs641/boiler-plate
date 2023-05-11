@@ -1,7 +1,7 @@
 [![style: lint](https://img.shields.io/badge/style-lint-4BC0F5.svg)](https://pub.dev/packages/lint)
 # Boilerplate Project
 
-A boilerplate project created in flutter using RiverPod. Boilerplate supports both web and mobile.
+A boilerplate project created in flutter using RiverPod in MVVM architecture. Boilerplate supports both web and mobile.
 
 ## Getting Started
 
@@ -61,7 +61,7 @@ flutter packages pub run build_runner watch
 
 
 
-### Libraries & Tools Used
+### Libraries Included
 
 * [Go Router](https://pub.dev/packages/go_router)
 * [Riverpod](https://pub.dev/packages/flutter_riverpod)
@@ -81,7 +81,7 @@ flutter packages pub run build_runner watch
 * [Local Notification](https://pub.dev/packages/flutter_local_notifications)
 
 
-### Folder Structure
+### Project Structure
 
 Here is the folder structure we have been using in this project
 

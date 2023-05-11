@@ -1,3 +1,5 @@
+import 'dart:isolate';
+
 import 'package:boiler_plate/core/exceptions.dart';
 import 'package:boiler_plate/environment.dart';
 import 'package:boiler_plate/utils/logger.dart';
@@ -11,8 +13,8 @@ class ApiClient {
 
   ApiClient() {
     dio.options.baseUrl = Environment.value.baseUrl!;
-    dio.options.connectTimeout = const Duration(minutes: 3).inMilliseconds;
-    dio.options.receiveTimeout = const Duration(minutes: 3).inMilliseconds;
+    dio.options.connectTimeout = const Duration(minutes: 3);
+    dio.options.receiveTimeout = const Duration(minutes: 3);
     if (Environment.value.environmentType != EnvType.PRODUCTION) {
       dio.interceptors.add(
         PrettyDioLogger(
@@ -32,8 +34,8 @@ class ApiClient {
     try {
       return await dio.post(path, data: data);
     } on DioError catch (e) {
-      Logger.write(e.message);
-      throw ApiException(e.message);
+      Logger.write(e.message ?? "");
+      throw ApiException(e.message ?? "");
     }
   }
 
@@ -41,8 +43,8 @@ class ApiClient {
     try {
       return await dio.put(path, data: data);
     } on DioError catch (e) {
-      Logger.write(e.message);
-      throw ApiException(e.message);
+      Logger.write(e.message ?? "");
+      throw ApiException(e.message ?? "");
     }
   }
 
@@ -50,8 +52,8 @@ class ApiClient {
     try {
       return await dio.delete(path);
     } on DioError catch (e) {
-      Logger.write(e.message);
-      throw ApiException(e.message);
+      Logger.write(e.message ?? "");
+      throw ApiException(e.message ?? "");
     }
   }
 
@@ -59,8 +61,8 @@ class ApiClient {
     try {
       return await dio.get(path);
     } on DioError catch (e) {
-      Logger.write(e.message);
-      throw ApiException(e.message);
+      Logger.write(e.message ?? "");
+      throw ApiException(e.message ?? "");
     }
   }
 }

@@ -93,7 +93,7 @@ class _NewsListViewState extends ConsumerState<NewsListView>
 
   @override
   void navigateToScreen(AppRoute appRoute, {Map<String, String>? params}) {
-    context.pushNamed(appRoute.name, params: params ?? {},
+    context.pushNamed(appRoute.name, pathParameters: params ?? {},
         // {"fid": NavBarScreens.data[1].id},
         );
   }

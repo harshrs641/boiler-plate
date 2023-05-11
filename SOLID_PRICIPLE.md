@@ -189,7 +189,7 @@ class PaymentViaBhimUPI implements Payment
 class Checkout
 {
   // our checkout class knows nothing about how payment works 
-  // its knows pay.payment() is paying method 
+  // it knows pay.payment() is a paying method 
   checkOut(Payment pay)
   {
     pay.payment();

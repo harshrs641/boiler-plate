@@ -1,4 +1,4 @@
-## **IMPLEMENts** 
+## **IMPLEMENTS** 
 
 We must override every method declared in the superclass. 
 
@@ -84,7 +84,7 @@ class Developer with Walking, Coding {}
 
 ## **ON** 
 
-If we wanted, we could also restrict mixins to be applied only on certain types using the on keyword
+If we want, we could also restrict mixins to be applied only on certain types using the on keyword
 
 
 ```dart

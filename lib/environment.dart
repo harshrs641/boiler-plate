@@ -27,9 +27,8 @@ class Environment {
 
   Future<void> _init() async {
     WidgetsFlutterBinding.ensureInitialized();
-    await Firebase.initializeApp(
-    );
-    await FirebaseMessagingProvider.init();
+    // await Firebase.initializeApp();
+    // await FirebaseMessagingProvider.init();
     await EasyLocalization.ensureInitialized();
     await SharedPreferenceService.init();
     try {
@@ -37,15 +36,18 @@ class Environment {
     } catch (e) {
       Logger.write(e.toString());
     }
-    runApp(ProviderScope(
-      child: EasyLocalization(
+    runApp(
+      ProviderScope(
+        child: EasyLocalization(
           supportedLocales: const [
             Locale('en'),
             Locale('hi'),
           ],
           path: 'assets/languages',
           fallbackLocale: const Locale('en', 'US'),
-          child: const MyApp(),),
-    ),);
+          child: const MyApp(),
+        ),
+      ),
+    );
   }
 }
