@@ -15,23 +15,26 @@ class MyApp extends ConsumerWidget {
     final goRouter = ref.watch(routerProvider);
     final themeManager = ref.watch(themeProvider);
     return MediaQuery(
-        data: MediaQuery.of(context).copyWith(textScaler: TextScaler.noScaling),
-        child: ScreenUtilInit(
-            minTextAdapt: true,
-            splitScreenMode: true,
-            builder: (context, child) {
-              return MaterialApp.router(
-                localizationsDelegates: context.localizationDelegates,
-                supportedLocales: context.supportedLocales,
-                locale: context.locale,
-                routeInformationParser: goRouter.routeInformationParser,
-                routerDelegate: goRouter.routerDelegate,
-                routeInformationProvider: goRouter.routeInformationProvider,
-                theme: AppThemes.lightTheme,
-                darkTheme: AppThemes.darkTheme,
-                themeMode: themeManager.currentTheme,
-                debugShowCheckedModeBanner: false,
-              );
-            },),);
+      data: MediaQuery.of(context).copyWith(textScaler: TextScaler.noScaling),
+      child: ScreenUtilInit(
+        designSize: MediaQuery.of(context).size,
+        minTextAdapt: true,
+        splitScreenMode: true,
+        builder: (context, child) {
+          return MaterialApp.router(
+            localizationsDelegates: context.localizationDelegates,
+            supportedLocales: context.supportedLocales,
+            locale: context.locale,
+            routeInformationParser: goRouter.routeInformationParser,
+            routerDelegate: goRouter.routerDelegate,
+            routeInformationProvider: goRouter.routeInformationProvider,
+            theme: AppThemes.lightTheme,
+            darkTheme: AppThemes.darkTheme,
+            themeMode: themeManager.currentTheme,
+            debugShowCheckedModeBanner: false,
+          );
+        },
+      ),
+    );
   }
 }

@@ -4,5 +4,6 @@ import 'package:dartz/dartz.dart';
 
 abstract class BaseNewsListRepo {
   Future<Either<ApiException, NewsListResponse>> getNewsList(
-      String categoryName,);
+    String categoryName,
+  );
 }

@@ -8,6 +8,7 @@ import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class ApiClient {
   static const String TOP_HEADLINES = 'top-headlines';
+  static const String EVERYTHING = 'everything';
 
   final Dio dio = Dio();
 

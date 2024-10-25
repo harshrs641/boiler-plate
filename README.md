@@ -14,7 +14,7 @@ The Boilerplate contains the minimal implementation required to create a new lib
 Download or clone this repo by using the link below:
 
 ```
-https://github.com/harshrs641/boiler-plate
+https://github.com/harshrs641/boiler_plate
 ```
 
 **Step 2:**
@@ -27,16 +27,37 @@ flutter pub get
 
 **Step 3:**
 
+Now we have create platform folders (android, ios, web, windows, macos, linux). This will make sure you will have up-to-date code (remove these folder from .gitignore for production): 
+
+```
+flutter create .  
+```
+
+**Step 4:**
+
 This project uses `inject` library that works with code generation, execute the following command to generate files:
 
 ```
-flutter packages pub run build_runner build --delete-conflicting-outputs
+dart run build_runner build --delete-conflicting-outputs
 ```
 
 or watch command in order to keep the source code synced automatically:
 
 ```
-flutter packages pub run build_runner watch
+dart run build_runner watch
+```
+
+
+To generate native splash:
+
+```
+dart run flutter_native_splash:create
+```
+
+To generate launcher icons:
+
+```
+dart run flutter_launcher_icons
 ```
 
 
@@ -50,6 +71,7 @@ flutter packages pub run build_runner watch
 * SharedPreference (Device Storage)
 * Riverpod (State Management)
 * Validation
+* Offline-First
 * Code Generation (Freezed Annotation)
 * User Notifications (FCM)
 * Logging
@@ -57,7 +79,9 @@ flutter packages pub run build_runner watch
 * Dark Theme Support
 * Multilingual Support (Easy Localization)
 * Responsive 
-
+* Asset generation 
+* Launcher Icons & Native Splash generation 
+* Navigation & Provider Observer
 
 
 

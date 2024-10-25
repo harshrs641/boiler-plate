@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'services/provider_observer.dart';
+
 enum EnvType {
   DEVELOPMENT,
   STAGING,
@@ -36,6 +38,9 @@ class Environment {
     }
     runApp(
       ProviderScope(
+        observers: [
+          ProviderObserverService(),
+        ],
         child: EasyLocalization(
           supportedLocales: const [
             Locale('en'),

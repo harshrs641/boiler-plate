@@ -1,4 +1,5 @@
 import 'package:boiler_plate/core/core.dart';
+import 'package:boiler_plate/data/local/new_list_storage.dart';
 import 'package:boiler_plate/data/remote/remote.dart';
 import 'package:boiler_plate/domain/providers/providers.dart';
 import 'package:boiler_plate/helpers/base_screen_view.dart';
@@ -13,12 +14,13 @@ final newsListViewModel = ChangeNotifierProvider.autoDispose(
 
 class NewsListViewModel extends BaseViewModel<BaseScreenView> {
   final BaseNewsListRepo _newsListRepo;
-  NewsListResponse? _newsListResponse;
+  NewsListResponse? _newsListResponse = NewsListLocalStorage.readFromStorage();
   NewsListResponse? get newsListResponse => _newsListResponse;
   NewsListViewModel(this._newsListRepo);
   Future<void> initialise() async {
     await _newsListRepo.getNewsList(AppConstants.entertainment).then(
           (value) => value.fold((l) {
+            _newsListResponse = const NewsListResponse();
             view?.showSnackbar(l.message);
           }, (r) {
             _newsListResponse = r;

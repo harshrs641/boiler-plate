@@ -6,23 +6,26 @@ part of 'news_list_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_NewsListResponse _$$_NewsListResponseFromJson(Map<String, dynamic> json) =>
-    _$_NewsListResponse(
+_$NewsListResponseImpl _$$NewsListResponseImplFromJson(
+        Map<String, dynamic> json) =>
+    _$NewsListResponseImpl(
       status: json['status'] as String?,
-      totalResults: json['totalResults'] as int?,
+      totalResults: (json['totalResults'] as num?)?.toInt(),
       articles: (json['articles'] as List<dynamic>?)
           ?.map((e) => Article.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$$_NewsListResponseToJson(_$_NewsListResponse instance) =>
+Map<String, dynamic> _$$NewsListResponseImplToJson(
+        _$NewsListResponseImpl instance) =>
     <String, dynamic>{
       'status': instance.status,
       'totalResults': instance.totalResults,
       'articles': instance.articles,
     };
 
-_$_Article _$$_ArticleFromJson(Map<String, dynamic> json) => _$_Article(
+_$ArticleImpl _$$ArticleImplFromJson(Map<String, dynamic> json) =>
+    _$ArticleImpl(
       source: json['source'] == null
           ? null
           : Source.fromJson(json['source'] as Map<String, dynamic>),
@@ -37,7 +40,7 @@ _$_Article _$$_ArticleFromJson(Map<String, dynamic> json) => _$_Article(
       content: json['content'] as String?,
     );
 
-Map<String, dynamic> _$$_ArticleToJson(_$_Article instance) =>
+Map<String, dynamic> _$$ArticleImplToJson(_$ArticleImpl instance) =>
     <String, dynamic>{
       'source': instance.source,
       'author': instance.author,
@@ -49,12 +52,13 @@ Map<String, dynamic> _$$_ArticleToJson(_$_Article instance) =>
       'content': instance.content,
     };
 
-_$_Source _$$_SourceFromJson(Map<String, dynamic> json) => _$_Source(
+_$SourceImpl _$$SourceImplFromJson(Map<String, dynamic> json) => _$SourceImpl(
       id: json['id'] as String?,
       name: json['name'] as String?,
     );
 
-Map<String, dynamic> _$$_SourceToJson(_$_Source instance) => <String, dynamic>{
+Map<String, dynamic> _$$SourceImplToJson(_$SourceImpl instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
     };

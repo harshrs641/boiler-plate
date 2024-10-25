@@ -2,6 +2,7 @@ import 'package:boiler_plate/data/remote/newsList/models/news_list_model.dart';
 import 'package:boiler_plate/helpers/base_screen_view.dart';
 import 'package:boiler_plate/routes/app_routes.dart';
 import 'package:boiler_plate/utils/app_sizes.dart';
+import 'package:boiler_plate/utils/translations.dart';
 import 'package:boiler_plate/view/screens/news/news_list_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -31,15 +32,15 @@ class _NewsListViewState extends ConsumerState<NewsListView>
     _viewModel = ref.watch(newsListViewModel);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('News List Screen'),
+        title: Text(Strings.page2),
         // leading: BackButton(),
       ),
-      body: _viewModel.loading
+      body: _viewModel.newsListResponse == null
           ? const Center(
               child: CircularProgressIndicator(),
             )
           : SingleChildScrollView(
-              child: Column(
+              child: Wrap(
                 children: [
                   ..._viewModel.newsListResponse?.articles
                           ?.map((e) => card(e))
@@ -52,44 +53,58 @@ class _NewsListViewState extends ConsumerState<NewsListView>
   }
 
   Widget card(Article article) {
+    final width = MediaQuery.of(context).size.width > 480
+        ? MediaQuery.of(context).size.width / 2
+        : MediaQuery.of(context).size.width;
     return article.urlToImage == null
         ? Container()
-        : Card(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(AppSizes.p12),
-                bottomRight: Radius.circular(AppSizes.p12),
-              ),
-            ),
-            elevation: AppSizes.p10,
+        : SizedBox(
+            width: width,
             child: AspectRatio(
               aspectRatio: 1,
-              child: Column(
-                children: [
-                  Expanded(
-                    child: Image.network(
-                      article.urlToImage!,
-                      fit: BoxFit.cover,
-                    ),
+              child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(AppSizes.p12),
+                    bottomRight: Radius.circular(AppSizes.p12),
                   ),
-                  ListTile(
-                    title: Text(article.title ?? ""),
-                    subtitle: Text(
-                      article.description ?? "",
-                      maxLines: 3,
+                ),
+                elevation: AppSizes.p10,
+                child: Column(
+                  children: [
+                    Expanded(
+                      child: Image.network(
+                        article.urlToImage!,
+                        fit: BoxFit.cover,
+                      ),
                     ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(AppSizes.p16),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Flexible(child: Text(article.author ?? "")),
-                        Text(DateFormat.yMMMd().format(article.publishedAt!)),
-                      ],
+                    ListTile(
+                      title: Text(article.title ?? ""),
+                      subtitle: Text(
+                        article.description ?? "",
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 3,
+                      ),
                     ),
-                  ),
-                ],
+                    Padding(
+                      padding: EdgeInsets.all(AppSizes.p16),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Flexible(
+                              child: Text(
+                            article.author ?? "",
+                            overflow: TextOverflow.ellipsis,
+                          )),
+                          Text(
+                            DateFormat.yMMMd().format(article.publishedAt!),
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           );
