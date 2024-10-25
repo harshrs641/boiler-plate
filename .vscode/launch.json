@@ -10,30 +10,30 @@
             "program": "lib/main_dev.dart",
             "request": "launch",
             "type": "dart",
-            "args": [
-                "--flavor",
-                "dev"
-            ]
+            // "args": [
+            //     "--flavor",
+            //     "dev"
+            // ]
         },
         {
             "name": "Staging",
             "program": "lib/main_staging.dart",
             "request": "launch",
             "type": "dart",
-            "args": [
-                "--flavor",
-                "staging"
-            ]
+            // "args": [
+            //     "--flavor",
+            //     "staging"
+            // ]
         },
         {
             "name": "Prod",
             "program": "lib/main_prod.dart",
             "request": "launch",
             "type": "dart",
-            "args": [
-                "--flavor",
-                "prod"
-            ]
+            // "args": [
+            //     "--flavor",
+            //     "prod"
+            // ]
         }
     ]
 }

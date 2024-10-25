@@ -31,7 +31,7 @@ class _HomeViewState extends ConsumerState<HomeView> with BaseScreenView {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Row(),
+          const Row(),
           ElevatedButton(
               onPressed: () {
                 context.setLocale(const Locale('en'));

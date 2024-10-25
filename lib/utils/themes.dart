@@ -1,11 +1,10 @@
 import 'package:boiler_plate/utils/colors.dart';
 import 'package:flutter/material.dart';
 
+import 'app_sizes.dart';
+
 class AppThemes {
   AppThemes._();
-
-  static String font1 = "ProductSans";
-  static String font2 = "Roboto";
 
   //main color
   static const Color _lightPrimaryColor = kDodgerBlue;
@@ -67,21 +66,24 @@ class AppThemes {
   static const Color _darkBorderErrorColor = kBrinkPink;
 
   //text theme for light theme
-  static const TextTheme _lightTextTheme = TextTheme(
-    headline1: TextStyle(fontSize: 20.0, color: _lightTextColor),
-    bodyText1: TextStyle(fontSize: 16.0, color: _lightTextColor),
-    bodyText2: TextStyle(fontSize: 14.0, color: kGrey),
-    button: TextStyle(
-        fontSize: 15.0, color: _lightTextColor, fontWeight: FontWeight.w600,),
-    headline6: TextStyle(fontSize: 16.0, color: _lightTextColor),
-    subtitle1: TextStyle(fontSize: 16.0, color: _lightTextColor),
-    caption: TextStyle(fontSize: 12.0, color: _lightBackgroundAppBarColor),
+  static final TextTheme _lightTextTheme = TextTheme(
+    displayLarge: TextStyle(fontSize: AppSizes.p20, color: _lightTextColor),
+    bodyLarge: TextStyle(fontSize: AppSizes.p16, color: _lightTextColor),
+    bodyMedium: TextStyle(fontSize: AppSizes.p14, color: kGrey),
+    labelLarge: TextStyle(
+      fontSize: AppSizes.p14,
+      color: _lightTextColor,
+      fontWeight: FontWeight.w600,
+    ),
+    titleLarge: TextStyle(fontSize: AppSizes.p16, color: _lightTextColor),
+    titleMedium: TextStyle(fontSize: AppSizes.p16, color: _lightTextColor),
+    bodySmall:
+        TextStyle(fontSize: AppSizes.p12, color: _lightBackgroundAppBarColor),
   );
 
   //the light theme
   static final ThemeData lightTheme = ThemeData(
     brightness: Brightness.light,
-    fontFamily: font1,
     scaffoldBackgroundColor: _lightBackgroundColor,
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
       backgroundColor: _lightPrimaryColor,
@@ -89,16 +91,17 @@ class AppThemes {
     appBarTheme: AppBarTheme(
       color: _lightBackgroundAppBarColor,
       iconTheme: const IconThemeData(color: _lightTextColor),
-      toolbarTextStyle: _lightTextTheme.bodyText2,
-      titleTextStyle: _lightTextTheme.headline6,
+      toolbarTextStyle: _lightTextTheme.bodyMedium,
+      titleTextStyle: _lightTextTheme.titleLarge,
     ),
     colorScheme: const ColorScheme.light(
       primary: _lightPrimaryColor,
       // secondary: _lightSecondaryColor,
     ),
     snackBarTheme: const SnackBarThemeData(
-        backgroundColor: _lightBackgroundAlertColor,
-        actionTextColor: _lightBackgroundActionTextColor,),
+      backgroundColor: _lightBackgroundAlertColor,
+      actionTextColor: _lightBackgroundActionTextColor,
+    ),
     iconTheme: const IconThemeData(
       color: _lightIconColor,
     ),
@@ -106,55 +109,58 @@ class AppThemes {
         const PopupMenuThemeData(color: _lightBackgroundAppBarColor),
     textTheme: _lightTextTheme,
     buttonTheme: ButtonThemeData(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
-        ),
-        buttonColor: _lightPrimaryColor,
-        textTheme: ButtonTextTheme.primary,),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8),
+      ),
+      buttonColor: _lightPrimaryColor,
+      textTheme: ButtonTextTheme.primary,
+    ),
     unselectedWidgetColor: _lightPrimaryColor,
-    inputDecorationTheme: const InputDecorationTheme(
+    inputDecorationTheme: InputDecorationTheme(
       //prefixStyle: TextStyle(color: _lightIconColor),
       border: OutlineInputBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(8.0),
-          ),),
+        borderRadius: BorderRadius.all(Radius.circular(AppSizes.p8)),
+      ),
       enabledBorder: OutlineInputBorder(
         borderSide: BorderSide(color: _lightBorderColor),
-        borderRadius: BorderRadius.all(Radius.circular(8.0)),
+        borderRadius: BorderRadius.all(Radius.circular(AppSizes.p8)),
       ),
       focusedBorder: OutlineInputBorder(
         borderSide: BorderSide(color: _lightBorderActiveColor),
-        borderRadius: BorderRadius.all(Radius.circular(8.0)),
+        borderRadius: BorderRadius.all(Radius.circular(AppSizes.p8)),
       ),
       errorBorder: OutlineInputBorder(
         borderSide: BorderSide(color: _lightBorderErrorColor),
-        borderRadius: BorderRadius.all(Radius.circular(8.0)),
+        borderRadius: BorderRadius.all(Radius.circular(AppSizes.p8)),
       ),
       focusedErrorBorder: OutlineInputBorder(
         borderSide: BorderSide(color: _lightBorderErrorColor),
-        borderRadius: BorderRadius.all(Radius.circular(8.0)),
+        borderRadius: BorderRadius.all(Radius.circular(AppSizes.p8)),
       ),
       fillColor: _lightBackgroundSecondaryColor,
       //focusColor: _lightBorderActiveColor,
     ),
   );
 
-  static const TextTheme _darkTextTheme = TextTheme(
-    headline1: TextStyle(fontSize: 20.0, color: _darkTextColor),
-    bodyText1: TextStyle(fontSize: 16.0, color: _darkTextColor),
-    bodyText2: TextStyle(fontSize: 14.0, color: kGrey),
-    button: TextStyle(
-        fontSize: 15.0, color: _darkTextColor, fontWeight: FontWeight.w600,),
-    headline6: TextStyle(fontSize: 16.0, color: _darkTextColor),
-    subtitle1: TextStyle(fontSize: 16.0, color: _darkTextColor),
-    caption: TextStyle(fontSize: 12.0, color: _darkBackgroundAppBarColor),
+  static final TextTheme _darkTextTheme = TextTheme(
+    displayLarge: TextStyle(fontSize: AppSizes.p20, color: _darkTextColor),
+    bodyLarge: TextStyle(fontSize: AppSizes.p16, color: _darkTextColor),
+    bodyMedium: TextStyle(fontSize: AppSizes.p14, color: kGrey),
+    labelLarge: TextStyle(
+      fontSize: AppSizes.p14,
+      color: _darkTextColor,
+      fontWeight: FontWeight.w600,
+    ),
+    titleLarge: TextStyle(fontSize: AppSizes.p16, color: _darkTextColor),
+    titleMedium: TextStyle(fontSize: AppSizes.p16, color: _darkTextColor),
+    bodySmall:
+        TextStyle(fontSize: AppSizes.p12, color: _darkBackgroundAppBarColor),
   );
 
   //the dark theme
   static final ThemeData darkTheme = ThemeData(
     brightness: Brightness.dark, //prefix icon color form input on focus
 
-    fontFamily: font1,
     scaffoldBackgroundColor: _darkBackgroundColor,
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
       backgroundColor: _darkPrimaryColor,
@@ -162,47 +168,50 @@ class AppThemes {
     appBarTheme: AppBarTheme(
       color: _darkBackgroundAppBarColor,
       iconTheme: const IconThemeData(color: _darkTextColor),
-      toolbarTextStyle: _darkTextTheme.bodyText2,
-      titleTextStyle: _darkTextTheme.headline6,
+      toolbarTextStyle: _darkTextTheme.bodyMedium,
+      titleTextStyle: _darkTextTheme.titleLarge,
     ),
     snackBarTheme: const SnackBarThemeData(
-        contentTextStyle: TextStyle(color: kWhite),
-        backgroundColor: _darkBackgroundAlertColor,
-        actionTextColor: _darkBackgroundActionTextColor,),
+      contentTextStyle: TextStyle(color: kWhite),
+      backgroundColor: _darkBackgroundAlertColor,
+      actionTextColor: _darkBackgroundActionTextColor,
+    ),
     iconTheme: const IconThemeData(
       color: _darkIconColor, //_darkIconColor,
     ),
     popupMenuTheme: const PopupMenuThemeData(color: _darkBackgroundAppBarColor),
     textTheme: _darkTextTheme,
     buttonTheme: ButtonThemeData(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
-        ),
-        buttonColor: _darkPrimaryColor,
-        textTheme: ButtonTextTheme.primary,),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(AppSizes.p8),
+      ),
+      buttonColor: _darkPrimaryColor,
+      textTheme: ButtonTextTheme.primary,
+    ),
     unselectedWidgetColor: _darkPrimaryColor,
-    inputDecorationTheme: const InputDecorationTheme(
+    inputDecorationTheme: InputDecorationTheme(
       prefixStyle: TextStyle(color: _darkIconColor),
       //labelStyle: TextStyle(color: nevada),
       border: OutlineInputBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(8.0),
-          ),),
+        borderRadius: BorderRadius.all(
+          Radius.circular(AppSizes.p8),
+        ),
+      ),
       enabledBorder: OutlineInputBorder(
         borderSide: BorderSide(color: _darkBorderColor),
-        borderRadius: BorderRadius.all(Radius.circular(8.0)),
+        borderRadius: BorderRadius.all(Radius.circular(AppSizes.p8)),
       ),
       focusedBorder: OutlineInputBorder(
         borderSide: BorderSide(color: _darkBorderActiveColor),
-        borderRadius: BorderRadius.all(Radius.circular(8.0)),
+        borderRadius: BorderRadius.all(Radius.circular(AppSizes.p8)),
       ),
       errorBorder: OutlineInputBorder(
         borderSide: BorderSide(color: _darkBorderErrorColor),
-        borderRadius: BorderRadius.all(Radius.circular(8.0)),
+        borderRadius: BorderRadius.all(Radius.circular(AppSizes.p8)),
       ),
       focusedErrorBorder: OutlineInputBorder(
         borderSide: BorderSide(color: _darkBorderErrorColor),
-        borderRadius: BorderRadius.all(Radius.circular(8.0)),
+        borderRadius: BorderRadius.all(Radius.circular(AppSizes.p8)),
       ),
       fillColor: _darkInputFillColor,
       //focusColor: _darkBorderActiveColor,

@@ -1,6 +1,7 @@
 import 'package:boiler_plate/data/remote/newsList/models/news_list_model.dart';
 import 'package:boiler_plate/helpers/base_screen_view.dart';
 import 'package:boiler_plate/routes/app_routes.dart';
+import 'package:boiler_plate/utils/app_sizes.dart';
 import 'package:boiler_plate/view/screens/news/news_list_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -43,7 +44,7 @@ class _NewsListViewState extends ConsumerState<NewsListView>
                   ..._viewModel.newsListResponse?.articles
                           ?.map((e) => card(e))
                           .toList() ??
-                      []
+                      [],
                 ],
               ),
             ),
@@ -54,20 +55,23 @@ class _NewsListViewState extends ConsumerState<NewsListView>
     return article.urlToImage == null
         ? Container()
         : Card(
-            shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(12),
-                    bottomRight: Radius.circular(12),),),
-            elevation: 10,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(AppSizes.p12),
+                bottomRight: Radius.circular(AppSizes.p12),
+              ),
+            ),
+            elevation: AppSizes.p10,
             child: AspectRatio(
               aspectRatio: 1,
               child: Column(
                 children: [
                   Expanded(
-                      child: Image.network(
-                    article.urlToImage!,
-                    fit: BoxFit.cover,
-                  ),),
+                    child: Image.network(
+                      article.urlToImage!,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                   ListTile(
                     title: Text(article.title ?? ""),
                     subtitle: Text(
@@ -76,7 +80,7 @@ class _NewsListViewState extends ConsumerState<NewsListView>
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(16.0),
+                    padding: EdgeInsets.all(AppSizes.p16),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -84,7 +88,7 @@ class _NewsListViewState extends ConsumerState<NewsListView>
                         Text(DateFormat.yMMMd().format(article.publishedAt!)),
                       ],
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
@@ -93,9 +97,10 @@ class _NewsListViewState extends ConsumerState<NewsListView>
 
   @override
   void navigateToScreen(AppRoute appRoute, {Map<String, String>? params}) {
-    context.pushNamed(appRoute.name, pathParameters: params ?? {},
-        // {"fid": NavBarScreens.data[1].id},
-        );
+    context.pushNamed(
+      appRoute.name, pathParameters: params ?? {},
+      // {"fid": NavBarScreens.data[1].id},
+    );
   }
 
   @override

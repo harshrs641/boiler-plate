@@ -1,9 +1,7 @@
 import 'package:boiler_plate/app.dart';
-import 'package:boiler_plate/domain/providers/firebase_messaging_provider.dart';
 import 'package:boiler_plate/services/shared_preference_service.dart';
 import 'package:boiler_plate/utils/utils.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
