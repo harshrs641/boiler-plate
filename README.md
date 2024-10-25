@@ -44,7 +44,7 @@ dart run build_runner build --delete-conflicting-outputs
 or watch command in order to keep the source code synced automatically:
 
 ```
-dart run build_runner watch
+dart run build_runner watch --delete-conflicting-outputs
 ```
 
 
@@ -70,6 +70,7 @@ dart run flutter_launcher_icons
 * Dio (API Client)
 * SharedPreference (Device Storage)
 * Riverpod (State Management)
+* Hooks (Widget State)
 * Validation
 * Offline-First
 * Code Generation (Freezed Annotation)

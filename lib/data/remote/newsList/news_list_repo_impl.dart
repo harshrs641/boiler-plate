@@ -1,5 +1,6 @@
 import 'package:boiler_plate/core/core.dart';
-import 'package:boiler_plate/data/local/new_list_storage.dart';
+import 'package:boiler_plate/data/local/local.dart';
+import 'package:boiler_plate/data/models/models.dart';
 import 'package:boiler_plate/data/remote/remote.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';

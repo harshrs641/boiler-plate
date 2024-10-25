@@ -1,4 +1,4 @@
-import 'package:boiler_plate/data/remote/newsList/models/news_list_model.dart';
+import 'package:boiler_plate/data/models/news_list_model.dart';
 import 'package:boiler_plate/services/shared_preference_service.dart';
 
 class NewsListLocalStorage {

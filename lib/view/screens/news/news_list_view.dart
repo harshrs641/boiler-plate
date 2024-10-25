@@ -1,4 +1,4 @@
-import 'package:boiler_plate/data/remote/newsList/models/news_list_model.dart';
+import 'package:boiler_plate/data/models/news_list_model.dart';
 import 'package:boiler_plate/helpers/base_screen_view.dart';
 import 'package:boiler_plate/routes/app_routes.dart';
 import 'package:boiler_plate/utils/app_sizes.dart';

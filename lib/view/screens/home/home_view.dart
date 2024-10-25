@@ -33,34 +33,46 @@ class _HomeViewState extends ConsumerState<HomeView> with BaseScreenView {
         children: [
           const Row(),
           ElevatedButton(
-              onPressed: () {
-                context.setLocale(const Locale('en'));
-              },
-              child: Text(Strings.english),),
+            onPressed: () {
+              context.setLocale(const Locale('en'));
+            },
+            child: Text(Strings.english),
+          ),
           gapH16,
           ElevatedButton(
-              onPressed: () {
-                context.setLocale(const Locale('hi'));
-              },
-              child: Text(Strings.hindi),),
+            onPressed: () {
+              context.setLocale(const Locale('hi'));
+            },
+            child: Text(Strings.hindi),
+          ),
           gapH16,
           ElevatedButton(
-              onPressed: () {
-                _viewModel.showSnackbar("wohooo!!!!");
-              },
-              child: Text(Strings.showSnackbar),),
+            onPressed: () {
+              _viewModel.showSnackbar("wohooo!!!!");
+            },
+            child: Text(Strings.showSnackbar),
+          ),
           gapH16,
           ElevatedButton(
-              onPressed: () {
-                _viewModel.navigateToSecondScreen();
-              },
-              child: Text(Strings.page2),),
+            onPressed: () {
+              _viewModel.navigateToSecondScreen();
+            },
+            child: Text(Strings.page2),
+          ),
           gapH16,
           ElevatedButton(
-              onPressed: () {
-                ref.read(themeProvider).toggleThemeMode();
-              },
-              child: Text(Strings.theme),),
+            onPressed: () {
+              context.pushNamed(AppRoute.formScreen.name);
+            },
+            child: Text(Strings.formPage),
+          ),
+          gapH16,
+          ElevatedButton(
+            onPressed: () {
+              ref.read(themeProvider).toggleThemeMode();
+            },
+            child: Text(Strings.theme),
+          ),
         ],
       ),
     );
@@ -68,9 +80,10 @@ class _HomeViewState extends ConsumerState<HomeView> with BaseScreenView {
 
   @override
   void navigateToScreen(AppRoute appRoute, {Map<String, String>? params}) {
-    context.pushNamed(appRoute.name, pathParameters: params ?? {},
-        // {"fid": NavBarScreens.data[1].id},
-        );
+    context.pushNamed(
+      appRoute.name, pathParameters: params ?? {},
+      // {"fid": NavBarScreens.data[1].id},
+    );
   }
 
   @override

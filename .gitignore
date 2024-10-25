@@ -5,6 +5,9 @@
 *.swp
 .DS_Store
 .env
+*.g.dart
+*.freezed.dart
+*.lock
 .atom/
 .buildlog/
 .history
